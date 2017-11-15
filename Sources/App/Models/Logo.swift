@@ -16,13 +16,13 @@ struct Logo: Parameterizable, ResponseRepresentable, JSONRepresentable, Encodabl
     static func make(for parameter: String) throws -> Logo {
         // TODO: Fill up logos
         guard parameter == "42" else {
-            return Logo(thumbnailURL: URL(string: "http://example.com")!, logoURL: nil,  publishedAt: Date(), id: UUID.init())
+            return Logo(thumbnailURL: URL(string: "http://example.com")!, logoURL: nil,  publishedAt: Date(), id: "")
         }
-        return Logo(thumbnailURL: URL(string: "http://example.com")!, logoURL: URL(string: "http://example.com")!,  publishedAt: Date(), id: UUID.init())
+        return Logo(thumbnailURL: URL(string: "http://example.com")!, logoURL: URL(string: "http://example.com")!,  publishedAt: Date(), id: "")
     }
 
     var thumbnailURL: URL
     var logoURL: URL?
     var publishedAt: Date
-    var id: UUID
+    var id: String
 }

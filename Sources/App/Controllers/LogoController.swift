@@ -13,7 +13,7 @@ final class LogoController: ResourceRepresentable, EmptyInitializable {
 
     func index(_ req: Request) throws -> ResponseRepresentable {
         var logos = [JSON]()
-        (1...6).map({logos.append(try! Logo(thumbnailURL: try! req.uri.appendingPathComponent("storage/icon_1024x1024-\($0).png").makeFoundationURL(), logoURL: try! req.uri.appendingPathComponent("storage/icon_120x120-\($0).png").makeFoundationURL(), publishedAt: Date(), id: UUID()).makeJSON())})
+        (1...6).map({logos.append(try! Logo(thumbnailURL: try! req.uri.appendingPathComponent("storage/icon_1024x1024-\($0).png").makeFoundationURL(), logoURL: try! req.uri.appendingPathComponent("storage/icon_120x120-\($0).png").makeFoundationURL(), publishedAt: Date(), id: "\($0)").makeJSON())})
         return JSON.array(logos)
     }
 
