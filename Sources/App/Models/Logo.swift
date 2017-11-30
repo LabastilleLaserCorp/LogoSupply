@@ -3,8 +3,12 @@ import Foundation
 
 struct Logo: Parameterizable, ResponseRepresentable, JSONRepresentable, Encodable {
     func makeJSON() throws -> JSON {
-        let data = try JSONEncoder().encode(self)
-        return try JSON(bytes: data)
+        var json = JSON()
+        try json.set("thumbnailURL", thumbnailURL.absoluteString)
+        try json.set("logoURL", logoURL?.absoluteString)
+        try json.set("publishedAt", publishedAt)
+        try json.set("id", id)
+        return json
     }
 
     func makeResponse() throws -> Response {
